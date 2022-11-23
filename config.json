@@ -1,0 +1,5 @@
+// file ini nantinya menyimpan configurasi testing dari jest
+{
+    "bail": 1,
+    "verbose": true
+}
