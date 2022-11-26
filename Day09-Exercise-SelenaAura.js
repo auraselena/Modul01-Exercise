@@ -4,9 +4,9 @@
 /**
  * Steps:
  * 1. bikin variabel yang ingin diproses
- * 2. bikin function map duplicate dengan 2 input: array dan cb function
+ * 2. bikin function map duplicate dengan 2 input: array dan callback function
  *    a. sediain array kosong untuk menampung hasil map
- *    b. di tiap iterasi, tiap elemen array asal diproses oleh cb function lalu di-push ke array hasil map
+ *    b. di tiap iterasi, tiap elemen array asal diproses oleh callback function lalu di-push ke array hasil map
  *    c. return hasil
  * 3. bikin funtion callback
  * 4. output: array hasil map
@@ -43,6 +43,15 @@ console.log(arrMultiply);  // step 4
 
 // no 2. membuat filter duplicate ===============================================================================
 
+/**
+ * 1. bikin function callback: mencari bilangan ganjil (input: number, output: true/false)
+ * 2. bu=ikin function filter
+ *    a. input: array, callback function
+ *    b. bikin array kosong untuk menampung hasil filter
+ *    c. dalam iterasi sebanyak elemen array, if output callback adalah true, push elemen array ke array kosong hasil filter
+ * 3. output: array hasil filter
+ */
+
 function findOdd(num){
     if(num % 2 == 1){
         return true;
@@ -66,3 +75,26 @@ console.log(filteredResult);
 // no3. membuat duplikat indexOf ================================================================================
 // console.log(words.indexOf("bajuri")) == 1;
 
+let gado2 = [1, 2, 3, "kata", 5, 43, 7];
+// function callback: menentukan apakah suatu elemen itu string atau bukan
+// function findIndexOf untuk mencari index string dalam array
+
+function isString(element){
+    if(typeof(element) == "string"){
+        return true;
+    }
+}
+
+function findIndexOf(array, cb){
+    let index = "";
+    
+    for(var i = 0; i < array.length; i++){
+        if(cb(array[i]) == true){
+            index += i;
+        }
+    }
+    return index;
+}
+
+let result = findIndexOf(gado2, isString);
+console.log(result);
